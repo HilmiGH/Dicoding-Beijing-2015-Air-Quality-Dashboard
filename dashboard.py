@@ -464,14 +464,8 @@ if homepage:
 
     status_columns = ['Good', 'Hazardous', 'Moderate', 'Unhealthy', 'Unhealthy for Sensitive Groups', 'Very Unhealthy']
 
-    # Get the directory where the script is located
-    script_dir = os.path.dirname(__file__)
-
-    # Construct the full path to the CSV file
-    csv_file_path = os.path.join(script_dir, 'all_status.csv')
-
     # Read the CSV file
-    all_status_df_pivot = pd.read_csv(csv_file_path, index_col=0)
+    all_status_df_pivot = pd.read_csv('All_Status/All_status.csv', index_col=0)
 
     # Sum across all locations for each air quality status
     aggregated_values = all_status_df_pivot[status_columns].sum()
